@@ -15,7 +15,7 @@ function lookAtNearPlayer() {
 
   if(!playerEntity) return
 
-  const pos = playerEntity.position
+  const pos = playerEntity.position.offset(0, playerEntity.height, 0)
   bot.lookAt(pos)
 }
 
@@ -23,3 +23,6 @@ bot.on('physicTick', lookAtNearPlayer)
 // Log errors and kick reasons:
 bot.on('kicked', console.log)
 bot.on('error', console.log)
+
+// Tell the user the bot is inside the server!
+console.log("Your bot is now online!")
