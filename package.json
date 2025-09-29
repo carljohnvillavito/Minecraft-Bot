@@ -1,0 +1,11 @@
+{
+  "name": "minecraft-bot",
+  "version": "1.0.0",
+  "description": "A simple Mineflayer bot.",
+  "main": "index.js", // Must match your main file name
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {}
+}
