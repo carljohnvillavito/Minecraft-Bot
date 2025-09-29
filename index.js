@@ -9,11 +9,17 @@ const bot = mineflayer.createBot({
   password: 'riplolo2021'      // set if you want to use password-based auth (may be unreliable). If specified, the `username` must be an email
 })
 
-bot.on('chat', (username, message) => {
-  if (username === bot.username) return
-  bot.chat(message)
-})
+function lookAtNearPlayer() {
+  const playerFilter = (entity) => entity.type === 'player'
+  const playerEntity = bot.nearestEntity(playerFilter)
 
+  if(!playerEntity) return
+
+  const pos = playerEntity.position
+  bot.lookAt(pos)
+}
+
+bot.on('physicTick', lookAtNearPlayer)
 // Log errors and kick reasons:
 bot.on('kicked', console.log)
 bot.on('error', console.log)
